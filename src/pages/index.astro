@@ -1,40 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
 ---
 
-<Layout title="Portfolio de [Tu Nombre]" description="Un portfolio profesional para mostrar mis proyectos y habilidades.">
-  <Header />
-  <main class="container mx-auto px-6 py-12">
-    <section id="hero" class="min-h-screen flex items-center justify-center text-center">
-      <div>
-        <h1 class="text-5xl font-bold mb-4">Hola, soy [Tu Nombre]</h1>
-        <p class="text-xl text-secondary mb-8">Desarrollador Web | Apasionado por la Tecnología</p>
-        <a href="#projects" class="bg-primary text-text font-bold py-3 px-6 rounded-full hover:bg-pink-600 transition-colors">Ver mis Proyectos</a>
-      </div>
-    </section>
-    <section id="about" class="py-20">
-      <h2 class="text-4xl font-bold text-center mb-12">Sobre Mí</h2>
-      <p class="max-w-3xl mx-auto text-lg leading-relaxed">
-        Aquí va una breve descripción sobre ti, tus pasiones, tu experiencia y lo que te motiva. Puedes hablar de tus tecnologías favoritas y de cómo te gusta trabajar. El objetivo es dar una idea clara de quién eres como profesional y como persona.
-      </p>
-    </section>
-    <section id="projects" class="py-20">
-      <h2 class="text-4xl font-bold text-center mb-12">Proyectos</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Los proyectos se añadirán aquí -->
-        <div class="bg-accent rounded-lg shadow-lg overflow-hidden">
-          <div class="p-6">
-            <h3 class="text-2xl font-bold mb-2">Nombre del Proyecto</h3>
-            <p class="text-secondary mb-4">Una breve descripción del proyecto.</p>
-            <a href="#" class="text-primary hover:underline">Ver más</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<Layout title="Arantxa's Portfolio" description="Portafolio de Arantxa, una apasionada desarrolladora web con experiencia en la creación de experiencias digitales modernas y atractivas.">
+  <main class="text-text">
+    <Header />
+    <Hero />
+
+    <!-- Placeholder sections to enable scrolling -->
+    <section id="about" class="h-screen bg-accent/20"></section>
+    <section id="projects" class="h-screen"></section>
+    <section id="contact" class="h-screen bg-accent/20"></section>
+
   </main>
-  <footer class="bg-accent py-6 text-center">
-    <p>&copy; 2024 [Tu Nombre]. Todos los derechos reservados.</p>
-    <!-- Los enlaces a redes sociales irán aquí -->
-  </footer>
 </Layout>

@@ -1,0 +1,48 @@
+---
+---
+
+<!-- Hero Section -->
+<section id="hero" class="container mx-auto px-6 py-16 md:py-24">
+  <div class="grid md:grid-cols-2 gap-12 items-center">
+    <!-- Text Content -->
+    <div class="text-center md:text-left">
+      <p class="text-2xl md:text-3xl font-light">Hola, soy</p>
+      <h1 class="animated-gradient-text text-6xl md:text-8xl font-bold my-2">
+        Arantxa
+      </h1>
+      <p class="mt-4 text-lg md:text-xl text-secondary">
+        Una apasionada desarrolladora web con experiencia en la creación de experiencias digitales modernas y atractivas. Me especializo en el desarrollo front-end y me encanta dar vida a las ideas a través del código.
+      </p>
+    </div>
+
+    <!-- Visual Content -->
+    <div class="flex justify-center">
+      <!-- Spline for Desktop -->
+      <div class="hidden md:block w-full h-[400px]">
+        <spline-viewer url="https://prod.spline.design/zKtarkqpdjb9W2-z/scene.splinecode"></spline-viewer>
+      </div>
+      <!-- Image for Mobile -->
+      <div class="md:hidden">
+        <img src="/hero-mobile.jpg" alt="Arantxa" class="rounded-full shadow-lg w-64 h-64 object-cover mx-auto">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .animated-gradient-text {
+    background-image: linear-gradient(45deg, var(--primary), var(--secondary), var(--primary));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 4s ease infinite;
+  }
+
+  @keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+</style>
+
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.85/build/spline-viewer.js"></script>
