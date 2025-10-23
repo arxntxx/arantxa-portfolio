@@ -1,0 +1,49 @@
+---
+---
+<header class="bg-accent shadow-md sticky top-0 z-50">
+  <nav class="container mx-auto px-6 py-4">
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex justify-center items-center space-x-8">
+      <a href="/">
+        <img src="/logo.png" alt="Logo" class="h-12 w-12 lg:w-14 lg:h-14 lg:space-x-12 lg:hover:scale-120  transition-all duration-300 ease-in-out">
+      </a>
+      <ul class="flex uppercase space-x-12">
+        <li><a href="#about" class="block text-text tracking-wider transition-all duration-300 ease-in-out hover:text-[var(--primary)] hover:scale-120">Sobre Mí</a></li>
+        <li><a href="#projects" class="block text-text tracking-wider transition-all duration-300 ease-in-out hover:text-[var(--primary)] hover:scale-120">Proyectos</a></li>
+        <li><a href="#contact" class="block text-text tracking-wider transition-all duration-300 ease-in-out hover:text-[var(--primary)] hover:scale-120">Contacto</a></li>
+      </ul>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden flex justify-between items-center">
+        <a href="/">
+            <img src="/logo.png" alt="Logo" class="h-12 w-12">
+        </a>
+      <button id="menu-btn" class="text-text focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Links -->
+  <div id="mobile-menu" class="hidden md:hidden">
+    <ul class="uppercase px-2 pt-2 pb-3 space-y-2 sm:px-3 text-center">
+      <li><a href="#about" class="block py-2 px-4 text-sm text-text tracking-wider transition-all duration-300 ease-in-out hover:text-primary hover:scale-110">Sobre Mí</a></li>
+      <li><a href="#projects" class="block py-2 px-4 text-sm text-text tracking-wider transition-all duration-300 ease-in-out hover:text-primary hover:scale-110">Proyectos</a></li>
+      <li><a href="#contact" class="block py-2 px-4 text-sm text-text tracking-wider transition-all duration-300 ease-in-out hover:text-primary hover:scale-110">Contacto</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+        });
+    }
+  </script>
+</header>
