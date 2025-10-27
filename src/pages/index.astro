@@ -2,17 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
 ---
 
 <Layout title="Arantxa's Portfolio" description="Portafolio de Arantxa, una apasionada desarrolladora web con experiencia en la creación de experiencias digitales modernas y atractivas.">
   <main class="text-text">
     <Header />
-    <Hero />
+    
+    <!-- Sticky container for the parallax effect -->
+    <div class="sticky-hero-container">
+      <Hero />
+    </div>
 
-    <!-- Placeholder sections to enable scrolling -->
-    <section id="about" class="h-screen bg-accent/20"></section>
-    <section id="projects" class="h-screen"></section>
-    <section id="contact" class="h-screen bg-accent/20"></section>
+    <Projects />
+
+    <!-- You can add more sections here -->
+    <section id="contact" class="h-screen bg-background"></section>
 
   </main>
 </Layout>
+
+<style>
+  .sticky-hero-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 10; /* Lower z-index than the projects section */
+  }
+</style>
