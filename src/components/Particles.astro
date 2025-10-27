@@ -18,7 +18,7 @@
     const alphabet = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let mouse = { x: null, y: null, radius: 150 };
 
-    // --- SISTEMA 1: PETALOS (SIEMPRE ENCENDIDOS) ---
+    // --- SISTEMA 1: PETALOS (SIEMPRE ENCENDIDOS Y MAS OPACOS) ---
     let petals: Petal[] = [];
     const NUM_PETALS = 200;
 
@@ -31,7 +31,7 @@
             this.speedX = (Math.random() - 0.5) * 0.4; 
             this.speedY = (Math.random() - 0.5) * 0.4; 
             this.rotation = Math.random() * Math.PI * 2; this.spin = (Math.random() - 0.5) * 0.01;
-            this.opacity = this.size / 4; // Opacidad base ligada al tamaño
+            this.opacity = this.size / 1;
         }
         update(){
             this.x += this.speedX; this.y += this.speedY;
@@ -40,7 +40,6 @@
             if(this.x > petalCanvas.width || this.x < 0) { this.speedX *= -1; }
         }
         draw(){
-            // Ya no hay logica de encendido/apagado. La opacidad es constante.
             const finalOpacity = this.opacity;
             
             petalCtx.save();
