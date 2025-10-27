@@ -45,6 +45,14 @@ import Home from '../components/Home.astro';
     const mainContent = document.getElementById('main-content');
     const enterPortfolioButton = document.getElementById('enter-portfolio');
 
+    if (!homeSection || !mainContent || !enterPortfolioButton) {
+      if (mainContent) {
+        mainContent.style.display = 'block';
+        mainContent.style.opacity = '1';
+      }
+      return;
+    }
+
     const showPortfolio = () => {
       // Fade out home screen
       homeSection.style.transition = 'opacity 0.7s ease-out';

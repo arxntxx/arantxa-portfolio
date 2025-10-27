@@ -1,7 +1,7 @@
 ---
-export interface Props {
-	title: string;
-	description: string;
+interface Props {
+        title: string;
+  description: string;
 }
 
 const { title, description } = Astro.props;
@@ -9,7 +9,7 @@ const { title, description } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-	<head>
+        <head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
@@ -17,9 +17,9 @@ const { title, description } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
-	</body>
+        <body class="bg-background">
+                <slot />
+        </body>
 </html>
 <style is:global>
 	@import "../styles/global.css";
