@@ -1,53 +1,51 @@
 ---
-const projects = [
-  {
-    title: 'Proyecto 1',
-    description: 'Una breve descripción del primer proyecto.',
-    image: '/project-1.svg',
-    link: '#'
-  },
-  {
-    title: 'Proyecto 2',
-    description: 'Una breve descripción del segundo proyecto.',
-    image: '/project-2.svg',
-    link: '#'
-  },
-  {
-    title: 'Proyecto 3',
-    description: 'Una breve descripción del tercer proyecto.',
-    image: '/project-3.svg',
-    link: '#'
-  }
-];
+import '../styles/projects.css';
 ---
 
-<section id="projects" class="py-20 bg-background text-text">
-  <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center mb-12">Mis Proyectos</h2>
+<section id="projects" class="relative bg-background py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">Mis Proyectos</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {projects.map((project, index) => (
-        <div class="bg-background-alt rounded-lg overflow-hidden shadow-lg hover:shadow-primary/50 transition-shadow duration-300 animate-fade-in-up" style={`animation-delay: ${index * 200}ms`}>
-          <a href={project.link}>
-            <img src={project.image} alt={project.title} class="w-full h-48 object-cover" />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">{project.title}</h3>
-              <p class="text-text/80">{project.description}</p>
-            </div>
-          </a>
+
+      <!-- Project Card 1 -->
+      <div class="project-card">
+        <img src="/project-1.jpg" alt="Project 1" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Nombre del Proyecto 1</h3>
+          <p class="text-secondary mb-4">Una breve descripción de lo que trata este proyecto y las tecnologías utilizadas.</p>
+          <div class="flex justify-between">
+            <a href="#" class="text-primary hover:underline">Ver Demo</a>
+            <a href="#" class="text-primary hover:underline">Ver Código</a>
+          </div>
         </div>
-      ))}
+      </div>
+
+      <!-- Project Card 2 -->
+      <div class="project-card">
+        <img src="/project-2.jpg" alt="Project 2" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Nombre del Proyecto 2</h3>
+          <p class="text-secondary mb-4">Una breve descripción de lo que trata este proyecto y las tecnologías utilizadas.</p>
+          <div class="flex justify-between">
+            <a href="#" class="text-primary hover:underline">Ver Demo</a>
+            <a href="#" class="text-primary hover:underline">Ver Código</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div class="project-card">
+        <img src="/project-3.jpg" alt="Project 3" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Nombre del Proyecto 3</h3>
+          <p class="text-secondary mb-4">Una breve descripción de lo que trata este proyecto y las tecnologías utilizadas.</p>
+          <div class="flex justify-between">
+            <a href="#" class="text-primary hover:underline">Ver Demo</a>
+            <a href="#" class="text-primary hover:underline">Ver Código</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
-
-<style>
-  @keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .animate-fade-in-up {
-    animation: fade-in-up 1s ease-out forwards;
-    opacity: 0;
-  }
-</style>
