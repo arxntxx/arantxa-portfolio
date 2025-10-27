@@ -1,0 +1,46 @@
+---
+import Particles from './Particles.astro';
+---
+
+<section id="home" class="relative h-screen w-full flex flex-col justify-center items-center bg-transparent text-text">
+  <Particles />
+  <div class="relative z-10 text-center">
+    <h1 class="text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-fade-in-down">
+      Arantxa's Portfolio
+    </h1>
+    <p class="text-xl md:text-2xl text-text/80 mb-8 animate-fade-in-up animation-delay-500">
+      Desarrolladora Web & Creativa Digital
+    </p>
+    <button id="enter-portfolio" class="bg-primary text-background font-bold py-3 px-8 rounded-full transition-all duration-300 hover:bg-secondary hover:shadow-lg hover:shadow-secondary/50 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50 transform hover:scale-105">
+      Ver Portfolio
+    </button>
+  </div>
+</section>
+
+<style>
+  @keyframes fade-in-down {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in-down {
+    animation: fade-in-down 1s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 1s ease-out forwards;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  button:hover {
+    box-shadow: 0 0 15px 5px rgba(119, 79, 219, 0.4);
+  }
+</style>

@@ -3,10 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Projects from '../components/Projects.astro';
+import Home from '../components/Home.astro';
 ---
 
 <Layout title="Arantxa's Portfolio" description="Portafolio de Arantxa, una apasionada desarrolladora web con experiencia en la creación de experiencias digitales modernas y atractivas.">
-  <main class="text-text">
+  <Home />
+
+  <main id="main-content" class="text-text opacity-0 transition-opacity duration-1000">
     <Header />
     
     <!-- Sticky container for the parallax effect -->
@@ -23,10 +26,41 @@ import Projects from '../components/Projects.astro';
 </Layout>
 
 <style>
+  #main-content {
+    /* This will be controlled by script to avoid FOUC (Flash of Unstyled Content) */
+    display: none;
+  }
+
   .sticky-hero-container {
     position: sticky;
     top: 0;
     height: 100vh;
-    z-index: 10; /* Lower z-index than the projects section */
+    z-index: 10;
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const homeSection = document.getElementById('home');
+    const mainContent = document.getElementById('main-content');
+    const enterPortfolioButton = document.getElementById('enter-portfolio');
+
+    const showPortfolio = () => {
+      // Fade out home screen
+      homeSection.style.transition = 'opacity 0.7s ease-out';
+      homeSection.style.opacity = '0';
+
+      // Prepare main content to be shown
+      mainContent.style.display = 'block';
+
+      setTimeout(() => {
+        // Hide home screen completely
+        homeSection.style.display = 'none';
+        // Fade in main content
+        mainContent.style.opacity = '1';
+      }, 700); // Match the transition duration
+    };
+
+    enterPortfolioButton.addEventListener('click', showPortfolio);
+  });
+</script>
