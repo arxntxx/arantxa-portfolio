@@ -6,26 +6,19 @@ This document outlines the plan for creating a personal portfolio website using 
 
 ## Implemented Features
 
-*   **Project Setup:**
-    *   Astro.js project initialized.
-    *   Tailwind CSS integrated for styling.
-*   **Layout & Global Styles:**
-    *   A main `Layout.astro` file has been created to provide a consistent page structure.
-    *   Global styles, including a dark theme, custom fonts (Poppins), and a custom color palette, are defined in `src/styles/global.css`.
-    *   The Tailwind config (`tailwind.config.mjs`) is synchronized with the custom color palette.
-*   **Header Component (`src/components/Header.astro`):**
-    *   A sticky, responsive header component has been created.
-    *   **Desktop:** Features a centered logo and navigation links ("Sobre Mí", "Proyectos", "Contacto") with increased letter spacing (`tracking-widest`).
-    *   **Mobile:** Features a logo, a hamburger menu icon, and a slide-out menu.
-    *   **Interactivity:** Links have hover effects (scaling and color change).
-*   **Hero Component (`src/components/Hero.astro`):**
-    *   The hero section was created as a separate, reusable component.
-    *   Features a responsive, two-column layout.
-    *   **Text Content:** Includes an animated gradient for the main headline.
-    *   **Visual Content:**
-        *   **Desktop:** Displays an interactive 3D scene using `<spline-viewer>`.
-        *   **Mobile:** Displays a static fallback image.
+*   **Project Setup:** Astro.js project initialized with Tailwind CSS.
+*   **Layout & Global Styles:** Consistent page structure with a dark theme, custom fonts, and a defined color palette.
+*   **Header Component:** A sticky, responsive header with desktop and mobile navigation.
+*   **Hero Component:** A responsive hero section with an animated gradient headline and different visuals for desktop (3D) and mobile (image).
+*   **Particle Background v1 (`src/components/Particles.astro`):**
+    *   Started with a floating constellation effect.
+    *   Evolved into a "snow" effect.
+    *   **v2:** Transformed into an interactive "Matrix-style" code rain effect with mouse interaction.
 
 ## Current Plan
 
-Ready for the next feature implementation.
+**Objective:** Refine the background into a highly stylized and unique "Pink Code Heart" effect.
+
+**Steps:**
+1.  **Change Color Palette:** Switch the entire particle animation from green to a palette of pinks. The particles near the mouse will glow with a brighter, more intense pink.
+2.  **Implement Heart Shape Mask:** The falling code characters will now only be rendered within the boundaries of a large, centered heart shape. This will create the illusion that the code rain is forming a heart.
