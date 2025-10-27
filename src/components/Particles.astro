@@ -1,59 +1,113 @@
 ---
 ---
-<div id="tsparticles" class="absolute top-0 left-0 w-full h-full z-0"></div>
+
+<canvas
+  id="particle-canvas"
+  aria-hidden="true"
+  class="absolute inset-0 h-full w-full z-0"
+></canvas>
+
+<style>
+  #particle-canvas {
+    display: block;
+    background: transparent;
+  }
+</style>
 
 <script>
-import { tsParticles } from "@tsparticles/engine";
-import { loadSlim } from "@tsparticles/slim";
+  const PARTICLE_COUNT = 80;
+  const MAX_DISTANCE = 140;
 
-const options = {
-    fullScreen: {
-        enable: false,
-    },
-    particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#ffffff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        links: {
-            enable: true,
-            distance: 150,
-            color: "#ffffff",
-            opacity: 0.4,
-            width: 1,
-        },
-        move: {
-            enable: true,
-            speed: 1,
-            direction: "none",
-            random: true,
-            straight: false,
-            outModes: "out",
-        },
-    },
-    interactivity: {
-        events: {
-            onHover: { enable: true, mode: "repulse" },
-            onClick: { enable: true, mode: "push" },
-        },
-        modes: {
-            repulse: { distance: 100, duration: 0.4 },
-            push: { quantity: 4 },
-        },
-    },
-    background: {
-        color: "#141414",
-    },
-    detectRetina: true,
-};
+  /**
+   * @param {number} min
+   * @param {number} max
+   */
+  const randomBetween = (min, max) => Math.random() * (max - min) + min;
 
-async function loadParticles() {
-    await loadSlim(tsParticles);
-    await tsParticles.load("tsparticles", options);
-}
+  document.addEventListener('DOMContentLoaded', () => {
+    /** @type {HTMLCanvasElement | null} */
+    const canvas = document.getElementById('particle-canvas');
+    if (!canvas) {
+      return;
+    }
 
-document.addEventListener('DOMContentLoaded', () => {
-    loadParticles();
-});
+    const context = canvas.getContext('2d');
+    if (!context) {
+      return;
+    }
+
+    const particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+      x: 0,
+      y: 0,
+      size: randomBetween(1, 3.5),
+      velocityX: randomBetween(-0.6, 0.6),
+      velocityY: randomBetween(-0.6, 0.6)
+    }));
+
+    const resizeCanvas = () => {
+      const width = canvas.clientWidth || window.innerWidth;
+      const height = canvas.clientHeight || window.innerHeight;
+
+      canvas.width = width;
+      canvas.height = height;
+
+      particles.forEach((particle) => {
+        if (particle.x === 0 && particle.y === 0) {
+          particle.x = randomBetween(0, width);
+          particle.y = randomBetween(0, height);
+        }
+      });
+    };
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const drawParticles = () => {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw particles
+      particles.forEach((particle) => {
+        context.beginPath();
+        context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        context.fillStyle = 'rgba(255, 255, 255, 0.75)';
+        context.fill();
+
+        particle.x += particle.velocityX;
+        particle.y += particle.velocityY;
+
+        if (particle.x < 0 || particle.x > canvas.width) {
+          particle.x = Math.max(0, Math.min(particle.x, canvas.width));
+          particle.velocityX *= -1;
+        }
+
+        if (particle.y < 0 || particle.y > canvas.height) {
+          particle.y = Math.max(0, Math.min(particle.y, canvas.height));
+          particle.velocityY *= -1;
+        }
+      });
+
+      // Draw connecting lines
+      for (let i = 0; i < particles.length; i += 1) {
+        for (let j = i + 1; j < particles.length; j += 1) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.hypot(dx, dy);
+
+          if (distance < MAX_DISTANCE) {
+            const opacity = 1 - distance / MAX_DISTANCE;
+            context.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.35})`;
+            context.lineWidth = 1;
+            context.beginPath();
+            context.moveTo(particles[i].x, particles[i].y);
+            context.lineTo(particles[j].x, particles[j].y);
+            context.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(drawParticles);
+    };
+
+    requestAnimationFrame(drawParticles);
+  });
 </script>
