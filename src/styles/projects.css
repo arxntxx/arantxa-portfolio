@@ -1,5 +1,4 @@
 #projects {
-  background-color: var(--background); /* Fix for transparency */
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   margin-top: -40px; /* Pulls the section up to overlap */

@@ -1,9 +1,9 @@
 ---
+
 ---
 
 <!-- Hero Section -->
 <section id="hero" class="relative w-full h-screen overflow-hidden">
-
   <!-- Breathing Circles -->
   <div class="absolute inset-0 z-10">
     <div class="breathing-circle circle-1"></div>
@@ -14,33 +14,47 @@
   </div>
 
   <!-- Background for Desktop (Spline) -->
-  <div class="absolute inset-0 z-0 hidden lg:block" style="transform: scale(0.5) translateX(45%) translateY(-40%);";">
-    <spline-viewer loading-anim-type="spinner-small-dark" url="https://prod.spline.design/ANgSimz09kRzUctd/scene.splinecode"></spline-viewer>
+  <div
+    class="absolute top-[-10%] right-0 w-9/12 h-[130%] z-0 hidden lg:block"
+    style="transform: scale(0.9) translateX(-15%) translateY(-10%);"
+  >
+    <iframe
+      src="https://my.spline.design/dxnimobile-MXHuh9c062waR1YU0UgOKlCR/"
+      frameborder="0"
+      width="100%"
+      height="100%"></iframe>
   </div>
 
   <!-- Text Content -->
-  <div class="relative z-20 flex flex-col justify-center items-center lg:items-start h-full">
-    <div class="text-center lg:text-left px-6 lg:px-0 lg:pl-24">
+  <div
+    class="relative z-20 flex flex-col justify-center items-center lg:items-start h-full"
+  >
+    <div class="text-center lg:text-left px-6 lg:px-0 lg:pl-24 lg:w-5/12">
       <p class="text-2xl md:text-3xl font-light">Hola, soy</p>
       <h1 class="animated-gradient-text text-6xl md:text-8xl font-bold my-2">
         Arantxa
       </h1>
-      <p class="mt-4 text-lg md:text-xl text-secondary max-w-xl mx-auto lg:mx-0">
-        Una apasionada desarrolladora web con experiencia en la creación de experiencias digitales modernas y atractivas. Me especializo en el desarrollo front-end y me encanta dar vida a las ideas a través del código.
+      <p
+        class="mt-4 text-lg md:text-xl text-secondary max-w-xl mx-auto lg:mx-0"
+      >
+        Una apasionada desarrolladora web con experiencia en la creación de
+        experiencias digitales modernas y atractivas. Me especializo en el
+        desarrollo front-end y me encanta dar vida a las ideas a través del
+        código.
       </p>
 
       <!-- Profile Picture for Mobile/Tablet -->
       <div class="mt-8 flex justify-center lg:hidden">
-          <img src="/arantxa-photo.png" alt="Foto de Arantxa" class="rounded-full w-32 h-32 object-cover border-4 border-primary shadow-lg">
+        <img
+          src="/arantxa-photo.png"
+          alt="Foto de Arantxa"
+          class="rounded-full w-32 h-32 object-cover border-4 border-primary shadow-lg"
+        />
       </div>
-
     </div>
   </div>
-
 </section>
 
 <style>
-  @import '../styles/hero.css';
+  @import "../styles/hero.css";
 </style>
-
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.87/build/spline-viewer.js" async></script>
